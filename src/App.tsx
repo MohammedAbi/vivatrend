@@ -12,6 +12,9 @@ import Products, { productsData } from "./components/Products";
 import ProductPage from "./components/ProductPage";
 import Cart from "./components/Cart";
 import { useEffect } from "react";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Contact from "./components/Contact";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -55,6 +58,18 @@ const router = createBrowserRouter([
       {
         path: "/products/:id",
         element: <ProductPage productData={productsData} />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },

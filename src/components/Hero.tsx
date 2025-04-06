@@ -64,7 +64,7 @@ const HeroSlider = () => {
               </div>
 
               {/* Background Image */}
-              <div className="absolute top-0 w-full h-full">
+              <div className="absolute top-0 bott w-full h-full">
                 <img
                   className="object-cover h-full w-full"
                   src={bg}

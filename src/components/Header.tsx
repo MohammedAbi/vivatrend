@@ -91,7 +91,7 @@ const Header: React.FC = () => {
 
           {/* Profile */}
           <Link
-            to="/profile"
+            to="/login"
             className="hover:text-accent hover:underline transition flex items-center"
             aria-label="Profile"
           >
