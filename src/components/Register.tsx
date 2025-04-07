@@ -99,11 +99,11 @@ const Register = () => {
                 />
                 <label htmlFor="terms" className="text-sm cursor-pointer">
                   I agree to the{" "}
-                  <Link to="/terms" className="underline">
+                  <Link to="/terms-privacy#terms" className="underline">
                     Terms of Service
                   </Link>{" "}
                   and{" "}
-                  <Link to="/privacy" className="underline">
+                  <Link to="/terms-privacy#privacy" className="underline">
                     Privacy Policy
                   </Link>
                 </label>
@@ -147,8 +147,9 @@ const Register = () => {
             </div>
           </div>
         </div>
-         {/* Left side - hidden on mobile */}
-         <div className="relative lg:w-1/2 hidden lg:flex h-[calc(100vh-90px)]">
+
+        {/* Left side - hidden on mobile */}
+        <div className="relative lg:w-1/2 hidden lg:flex h-[calc(100vh-90px)]">
           <div className="absolute top-[20%] left-[10%] flex flex-col max-w-[80%]">
             <h1 className="text-4xl text-white font-bold my-4 leading-tight">
               Join the VivaTrend Community

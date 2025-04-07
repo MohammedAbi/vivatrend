@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaTimes, FaPlus, FaMinus } from "react-icons/fa";
 import { useCart } from "./context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const Cart: React.FC = () => {
   const {
@@ -15,6 +16,7 @@ const Cart: React.FC = () => {
   const [couponCode, setCouponCode] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
   const [invalidCoupon, setInvalidCoupon] = useState(false);
+  const navigate = useNavigate();
 
   if (!isCartOpen) return null;
 
@@ -177,7 +179,16 @@ const Cart: React.FC = () => {
                 </div>
               </div>
 
-              <button className="btn btn-primary btn-lg w-full">
+              <button
+                className="btn btn-primary btn-lg w-full"
+                onClick={() => {
+                  if (cartItems.length === 0) return;
+
+                  toggleCart();
+                  navigate("/checkout");
+                }}
+                disabled={cartItems.length === 0}
+              >
                 Proceed to Checkout
               </button>
             </div>

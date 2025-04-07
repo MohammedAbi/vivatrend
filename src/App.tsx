@@ -15,6 +15,8 @@ import { useEffect } from "react";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Contact from "./components/Contact";
+import TermsAndPrivacy from "./components/TermsPrivacy";
+import Checkout from "./components/Checkout";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -70,6 +72,14 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/terms-privacy",
+        element: <TermsAndPrivacy />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
     ],
   },
