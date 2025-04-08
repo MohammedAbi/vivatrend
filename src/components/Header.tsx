@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsList, BsX } from "react-icons/bs";
 import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
-import { useCart } from "./context/CartContext";
+import { useCart } from "./context/cart";
+
 
 const Header: React.FC = () => {
   const [header, setHeader] = useState(false);
