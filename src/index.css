@@ -39,4 +39,6 @@
   .btn-white {
     @apply bg-white text-[#0a0a0a];
   }
+  
 }
+

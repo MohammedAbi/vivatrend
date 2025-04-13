@@ -17,7 +17,7 @@ const AuthButtons: React.FC<AuthButtonsProps> = ({ onLoginClick }) => {
       </button>
 
       <div className="w-full flex items-center justify-center">
-        <p className="text-sm font-normal text-primary">
+        <p className="text-sm font-normal text-primary mt-3 mb-3">
           Already have an account?{" "}
           <Link to="/login">
             <span className="font-semibold underline underline-offset-2 cursor-pointer">

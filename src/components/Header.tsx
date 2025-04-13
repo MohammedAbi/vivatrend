@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsList, BsX } from "react-icons/bs";
-import { FaUserCircle, FaShoppingCart } from "react-icons/fa";
+import { FaUserCircle, FaShoppingCart, FaSignOutAlt } from "react-icons/fa";
 import { useCart } from "./context/cart";
-
+import { useAuth } from "./context/AuthContext";
 
 const Header: React.FC = () => {
   const [header, setHeader] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { getCartItemCount, toggleCart } = useCart();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const cartItemCount = getCartItemCount();
 
   useEffect(() => {
@@ -24,6 +26,12 @@ const Header: React.FC = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleLogout = () => {
+    logout();
+    closeMenu();
+    navigate("/");
   };
 
   return (
@@ -90,14 +98,35 @@ const Header: React.FC = () => {
             )}
           </button>
 
-          {/* Profile */}
-          <Link
-            to="/login"
-            className="hover:text-accent hover:underline transition flex items-center"
-            aria-label="Profile"
-          >
-            <FaUserCircle className="text-2xl" />
-          </Link>
+          {/* Profile/Login Section */}
+          {user ? (
+            <div className="flex items-center gap-2">
+              <Link
+                to="/profile"
+                className="hover:text-accent hover:underline transition flex items-center gap-1"
+              >
+                {/* <FaUserCircle className="text-2xl" /> */}
+                <span className="uppercase">
+                  {user.name.split("_")[0]} {/* Show first name only */}
+                </span>
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="hover:text-accent hover:underline transition flex items-center"
+                aria-label="Logout"
+              >
+                <FaSignOutAlt className="text-xl ml-2" />
+              </button>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              className="hover:text-accent hover:underline transition flex items-center"
+              aria-label="Login"
+            >
+              <FaUserCircle className="text-2xl" />
+            </Link>
+          )}
         </nav>
       </div>
 
@@ -140,14 +169,36 @@ const Header: React.FC = () => {
                 </span>
               )}
             </button>
-            <Link
-              to="/profile"
-              className="py-2 text-gray-800 hover:text-accent flex items-center"
-              onClick={closeMenu}
-            >
-              <FaUserCircle className="text-2xl mr-2" />
-              Profile
-            </Link>
+            {user ? (
+              <>
+                <Link
+                  to="/profile"
+                  className="py-2 text-gray-800 hover:text-accent flex items-center"
+                  onClick={closeMenu}
+                >
+                  {/* <FaUserCircle className="text-2xl mr-2" /> */}
+                  {/* {user.name.split('_')[0]} */}
+                  <span className="uppercase ">
+                    {user.name.split("_")[0].toLowerCase()}
+                  </span>
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="py-2 text-gray-800 hover:text-accent flex items-center"
+                >
+                  <FaSignOutAlt className="text-xl mr-2" />
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/login"
+                className="py-2 text-gray-800 hover:text-accent flex items-center"
+                onClick={closeMenu}
+              >
+                <FaUserCircle className="text-2xl mr-2" />
+                Login
+              </Link>
+            )}
           </nav>
         </div>
       )}
