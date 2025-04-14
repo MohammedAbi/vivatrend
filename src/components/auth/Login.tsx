@@ -16,7 +16,7 @@ const Login = () => {
     try {
       await login({ email, password });
     } catch (err) {
-      console.log(err)
+      console.log(err);
       // Error is already handled in the auth context
     }
   };

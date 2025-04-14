@@ -5,7 +5,7 @@ import { useCart } from "../context/cart";
 import CartItem from "./CartItem";
 import CouponInput from "./CouponInput";
 import CartSummary from "./CartSummary";
-import { toast } from "react-toastify"; // Import toast function
+import { toast } from "react-toastify";
 
 const Cart: React.FC = () => {
   const {
@@ -26,7 +26,7 @@ const Cart: React.FC = () => {
 
   const handleRemoveItem = (id: string, title: string) => {
     removeFromCart(id);
-    toast.error(`${title} removed from cart`); // Use the toast function
+    toast.error(`${title} removed from cart`);
   };
 
   const applyCoupon = () => {

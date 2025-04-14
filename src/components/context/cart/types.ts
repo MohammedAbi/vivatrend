@@ -1,30 +1,3 @@
-// export interface Product {
-//   id: string;
-//   title: string;
-//   price: number;
-//   discountedPrice: number;
-//   description: number;
-//   image: {
-//     url: string;
-//     alt: string;
-//   };
-// }
-
-// export interface CartItem extends Product {
-//   quantity: number;
-// }
-
-// export interface CartContextType {
-//   cartItems: CartItem[];
-//   isCartOpen: boolean;
-//   toggleCart: () => void;
-//   addToCart: (product: Product) => void;
-//   removeFromCart: (productId: string) => void;
-//   updateQuantity: (productId: string, quantity: number) => void;
-//   getCartItemCount: () => number;
-//   getCartTotal: () => number;
-//   clearCart: () => void;
-// }
 interface Review {
   id: string;
   username: string;

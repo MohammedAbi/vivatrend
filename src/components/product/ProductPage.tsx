@@ -1,45 +1,40 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-
+import { useProducts } from "../context/ProductsContext";
 import BackButton from "./BackButton";
 import ProductImage from "./ProductImage";
 import ProductDetails from "./ProductDetails";
 import ProductReviews from "./ProductReviews";
 import { useCart } from "../context/cart";
 
-interface Product {
-  id: string;
-  title: string;
-  price: number;
-  discountedPrice: number;
-  image: {
-    url: string;
-    alt: string;
-  };
-  rating: number;
-  reviews: {
-    id: string;
-    username: string;
-    rating: number;
-    description: string;
-  }[];
-  tags: string[];
-  description: string;
-}
-
-interface ProductPageProps {
-  productData: Product[];
-}
-
-const ProductPage: React.FC<ProductPageProps> = ({ productData }) => {
-  const { id } = useParams();
+const ProductPage: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const { products, loading, error } = useProducts();
   const { addToCart } = useCart();
 
-  const product = productData.find((p) => p.id === id);
+  const product = products.find((p) => p.id === id);
+
+  if (loading) {
+    return (
+      <div className="container mt-[90px] mx-auto px-4 py-16 md:py-24 text-center">
+        Loading product...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container mt-[90px] mx-auto px-4 py-16 md:py-24 text-center text-red-500">
+        Error loading product: {error}
+      </div>
+    );
+  }
 
   if (!product) {
     return (
-      <div className="text-center text-red-500 mt-20">Product not found.</div>
+      <div className="container mt-[90px] mx-auto px-4 py-16 md:py-24 text-center text-red-500">
+        Product not found.
+      </div>
     );
   }
 
