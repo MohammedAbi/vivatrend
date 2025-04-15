@@ -1,5 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import Img1 from "../assets/images/Background.jpg";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 
@@ -125,7 +123,7 @@ const Contact = () => {
               <textarea
                 id="message"
                 placeholder="Your message..."
-                rows="4"
+                rows={4}
                 className="w-full text-primary py-4 my-2 border-b border-accent bg-transparent outline-none focus:outline-none resize-none"
                 required
               ></textarea>
@@ -138,8 +136,7 @@ const Contact = () => {
               </button>
             </form>
 
-            <div className="w-full flex items-center justify-center mt-8">
-            </div>
+            <div className="w-full flex items-center justify-center mt-8"></div>
           </div>
         </div>
       </div>

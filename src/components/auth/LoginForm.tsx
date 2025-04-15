@@ -5,7 +5,7 @@ interface LoginFormProps {
   onSignUpClick: () => void;
   onSubmit: (email: string, password: string) => void;
   isLoading?: boolean;
-  error?: string;
+  error?: string | null;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({

@@ -34,6 +34,13 @@ const Header: React.FC = () => {
     navigate("/");
   };
 
+  const formatUsername = (username: string) => {
+    return username
+      .split("_")
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+      .join(" ");
+  };
+
   return (
     <header
       className={`${
@@ -105,10 +112,7 @@ const Header: React.FC = () => {
                 to="/profile"
                 className="hover:text-accent hover:underline transition flex items-center gap-1"
               >
-                {/* <FaUserCircle className="text-2xl" /> */}
-                <span className="uppercase">
-                  {user.name.split("_")[0]} {/* Show first name only */}
-                </span>
+                <span className="normal-case">{formatUsername(user.name)}</span>
               </Link>
               <button
                 onClick={handleLogout}
@@ -176,10 +180,8 @@ const Header: React.FC = () => {
                   className="py-2 text-gray-800 hover:text-accent flex items-center"
                   onClick={closeMenu}
                 >
-                  {/* <FaUserCircle className="text-2xl mr-2" /> */}
-                  {/* {user.name.split('_')[0]} */}
-                  <span className="uppercase ">
-                    {user.name.split("_")[0].toLowerCase()}
+                  <span className="normal-case">
+                    {formatUsername(user.name)}
                   </span>
                 </Link>
                 <button
@@ -187,6 +189,7 @@ const Header: React.FC = () => {
                   className="py-2 text-gray-800 hover:text-accent flex items-center"
                 >
                   <FaSignOutAlt className="text-xl mr-2" />
+                  Logout
                 </button>
               </>
             ) : (
