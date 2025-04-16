@@ -1,54 +1,150 @@
-# React + TypeScript + Vite
+# VivaTrend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Product Showcase
 
-Currently, two official plugins are available:
+> _[Screenshot placeholder – update with your image]_
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Description
 
-## Expanding the ESLint configuration
+**VivaTrend** is a full-featured e-commerce web application built using **React**, **Vite**, **TailwindCSS**, and **TypeScript**. It connects to the [Noroff API (v2)](https://v2.api.noroff.dev/) to fetch and manage product data, and it supports user registration, authentication, shopping cart functionality, and contact form.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
+## Features
+
+- **User Authentication**
+
+  - Register using a valid `@stud.noroff.no` email.
+  - Login/logout system with token handling.
+  - User profile page with details.
+
+- **Product Showcase**
+
+  - Grid layout with image, title, price (discounted and original), rating, and tags.
+  - Discount badge shown dynamically.
+
+- **Product Details Page**
+
+  - Display full product information.
+  - “Add to Cart” with toast notifications.
+
+- **Search & Sort Functionality**
+
+  - Search products by name.
+  - Sort by title and price.
+
+- **Shopping Cart System**
+
+  - Add, remove, adjust quantity of products.
+  - Cart stored in localStorage.
+  - Total cost calculation and checkout system.
+
+- **Checkout Page**
+
+  - Success message and cleared cart.
+  - Toast on successful checkout.
+
+- **Contact Page**
+
+  - Validated contact form with full name, subject, email, and message.
+  - Form powered by TypeScript.
+  - Toasts for submission success/failure.
+
+- **Responsive Design**
+
+  - Mobile-friendly and accessible design.
+
+- **TypeScript Integration**
+  - Fully typed API calls, components, and states.
+
+---
+
+## Technologies Used
+
+- React + Vite
+- Tailwind CSS
+- TypeScript
+- React Router DOM
+- Custom API Integration
+- LocalStorage
+
+---
+
+## API Integration
+
+```ts
+export const API_CONFIG = {
+  BASE_URL: import.meta.env.VITE_API_BASE_URL || "https://v2.api.noroff.dev/",
+  ENDPOINTS: {
+    AUTH: {
+      REGISTER: "auth/register",
+      LOGIN: "auth/login",
+    },
+    PRODUCTS: {
+      ALL: "online-shop",
+      SINGLE: (id: string) => `online-shop/${id}`,
     },
   },
-})
+  DEFAULT_HEADERS: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+} as const;
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**API Key:**  
+Add this in a `.env` file at the root of the project:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+VITE_API_KEY=your-api-key
+```
+
+---
+
+## Setup & Run
+
+1. **Clone repo**:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/vivatrend.git
+cd vivatrend
+```
+
+2. **Install dependencies**:
+
+```bash
+npm install
+```
+
+3. **Add environment variables**:
+   Create a `.env` file in root with this content:
+
+```
+VITE_API_KEY=your-api-key
+VITE_API_BASE_URL=https://v2.api.noroff.dev/
+```
+
+4. **Run dev server**:
+
+```bash
+npm run dev
+```
+
+5. **Build for production**:
+
+```bash
+npm run build
+```
+
+6. **Preview build**:
+
+```bash
+npm run preview
+```
+
+---
+
+## Links
+
+- **Live Site**: _Coming soon_
+- **GitHub Repo**: _Coming soon_
