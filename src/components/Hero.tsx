@@ -3,9 +3,9 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import { EffectFade, Autoplay } from "swiper/modules";
 
-import Img1 from "../assets/images/Background.jpg";
-import Img2 from "../assets/images/Background2.jpg";
-import Img3 from "../assets/images/Background3.jpg";
+import Img1 from "../assets/images/background.jpg";
+import Img2 from "../assets/images/background2.jpg";
+import Img3 from "../assets/images/background3.jpg";
 import { Link } from "react-router-dom";
 
 const slides = [
