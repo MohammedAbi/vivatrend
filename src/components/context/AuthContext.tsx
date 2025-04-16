@@ -5,6 +5,7 @@ import { authService } from "../../service/apiService";
 interface UserProfile {
   name: string;
   email: string;
+  bio?: string;
   avatar?: {
     url: string;
     alt: string;
@@ -24,6 +25,10 @@ interface AuthContextType {
     name: string;
     email: string;
     password: string;
+    bio?: string;
+    avatar?: { url: string; alt: string };
+    banner?: { url: string; alt: string };
+    venueManager: boolean;
   }) => Promise<void>;
   logout: () => void;
   isLoading: boolean;

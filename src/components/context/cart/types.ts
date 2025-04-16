@@ -1,16 +1,16 @@
-interface Review {
+export interface Review {
   id: string;
   username: string;
   rating: number;
   description: string;
 }
 
-interface ProductImage {
+export interface ProductImage {
   url: string;
   alt: string;
 }
 
-interface Product {
+export interface Product {
   id: string;
   title: string;
   description: string;
@@ -22,12 +22,27 @@ interface Product {
   reviews: Review[];
 }
 
-// With default values implementation
+export interface CartItem extends Product {
+  quantity: number;
+}
+
+export interface CartContextType {
+  cartItems: CartItem[];
+  isCartOpen: boolean;
+  toggleCart: () => void;
+  addToCart: (product: Product) => void;
+  removeFromCart: (productId: string) => void;
+  updateQuantity: (productId: string, quantity: number) => void;
+  getCartItemCount: () => number;
+  getCartTotal: () => number;
+  clearCart: () => void;
+}
+
+// Default product values (kan være nyttig ved f.eks. initialisering)
 const defaultProduct: Partial<Product> = {
   rating: 0,
   tags: [],
   reviews: [],
 };
 
-export type { Product, Review, ProductImage };
 export { defaultProduct };

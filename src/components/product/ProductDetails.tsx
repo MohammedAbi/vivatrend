@@ -26,9 +26,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   onAddToCart,
 }) => {
   const handleAddToCart = () => {
-    onAddToCart(); // Call the original add to cart function
+    onAddToCart();
     toast.success(`${title} added to cart!`, {
-      position: "bottom-right",
+      position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,

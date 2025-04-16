@@ -111,5 +111,5 @@ export const authService = {
   },
 };
 
-// Export the core apiRequest if needed elsewhere
+// Export the apiRequest
 export { apiRequest };

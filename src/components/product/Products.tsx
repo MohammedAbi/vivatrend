@@ -3,6 +3,9 @@ import SidebarFilter from "../SidebarFilter";
 import SearchBar from "../SearchBar";
 import ProductsGrid from "./ProductsGrid";
 
+// loader
+import { SpinnerDotted } from "spinners-react";
+
 import { useProducts } from "../context/ProductsContext";
 
 const Products = () => {
@@ -42,7 +45,9 @@ const Products = () => {
 
   if (loading) {
     return (
-      <div className="container pt-[180px] mx-auto px-4 py-8 flex justify-center"></div>
+      <div className="h-screen fixed bottom-0 top-0 bg-black/90 w-full z-50 flex justify-center items-center">
+        <SpinnerDotted color="white" />
+      </div>
     );
   }
 
