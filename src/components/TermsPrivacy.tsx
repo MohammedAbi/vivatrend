@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Img1 from "../assets/images/Background.jpg";
+import Img1 from "../assets/images/background.jpg";
 
 const TermsAndPrivacy = () => {
   return (
