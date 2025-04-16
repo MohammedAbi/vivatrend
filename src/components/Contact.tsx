@@ -1,4 +1,4 @@
-import Img1 from "../assets/images/Background.jpg";
+import Img1 from "../assets/images/background.jpg";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 
 const Contact = () => {
