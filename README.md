@@ -2,7 +2,10 @@
 
 ## Product Showcase
 
-> _[Screenshot placeholder – update with your image]_
+![Image](https://github.com/user-attachments/assets/ac2b1352-74f9-4fda-b596-26872f11eab1)
+The following image highlights VivaTrend's responsive UI built using React, TypeScript, and Tailwind CSS.
+It showcases how the technologies come together to deliver a fast, modern, and user-friendly e-commerce experience.
+Designed with mobile-first principles and dynamic interactivity powered by React components, this image reflects the core tech stack in action.
 
 ## Description
 
